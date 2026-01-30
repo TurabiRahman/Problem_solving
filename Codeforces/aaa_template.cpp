@@ -8,6 +8,7 @@ using namespace std;
 #define sort_dec(v) sort((v).begin(), (v).end(), greater<int>())
 #define sort_asc(v) sort((v).begin(), (v).end())
 #define reverse_lr(v, l, r) reverse((v).begin() + (l), (v).begin() + (r) + 1)
+#define fast ios::sync_with_stdio(false); cin.tie(NULL)
 
 
 inline int countDigit(int n)
