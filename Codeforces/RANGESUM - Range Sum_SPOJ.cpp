@@ -145,6 +145,13 @@ signed main()
 
     vector <int> v = prefix_sum(dq);
 
+    for(auto &a : v)
+    {
+        cout << a << " ";
+    }
+
+    cout << endl;
+
     while(q--)
     {
         int s;
@@ -164,7 +171,7 @@ signed main()
                 cout << v[v.size() - l + 1] - v[v.size() - r] << endl;
             }
         }
-        /*else
+        else
         {
             int y;
             cin >> y;
@@ -172,7 +179,7 @@ signed main()
             dq.push_front(y);
 
             v = prefix_sum(dq);
-        }*/
+        }
     }
 
     return 0;
