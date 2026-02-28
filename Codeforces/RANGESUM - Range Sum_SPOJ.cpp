@@ -85,7 +85,7 @@ signed main()
     return 0;
 }
 
-*/
+
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -183,5 +183,60 @@ signed main()
     }
 
     return 0;
+}
+
+*/
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    // Take the size of the array
+	long long n;
+	cin >> n;
+
+	// Take the array
+	vector<long long> iv;
+	for(long long i=0; i<n; i++)
+	{
+	    long long x;
+	    cin >> x;
+	    iv.push_back(x);
+	}
+
+	// prepare the "postfix sum reversed" array
+	vector<long long> sv;
+	sv.push_back(0);
+	for(long long i=n-1; i>=0; i--)
+	{
+	    long long lastSv = sv[sv.size() - 1];
+	    long long lastIv = iv[i];
+	    sv.push_back(lastSv + lastIv);
+	}
+
+
+	// Process queries
+	long long q;
+	cin >> q;
+	while(q--)
+	{
+		long long op;
+		cin >> op;
+		if(op == 1)
+		{
+			long long l,r;
+			cin >> l >> r;;
+			cout << sv[n-l+1] - sv[n-r] << endl;
+		}
+		else
+		{
+			long long val;
+			cin >> val;
+			sv.push_back(sv[sv.size() - 1] + val);
+			n++;
+		}
+	}
+	return 0;
 }
 
