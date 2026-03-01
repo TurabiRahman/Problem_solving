@@ -19,35 +19,39 @@ inline int countDigit(int n)
 }
 signed main()
 {
-    int t;
-    cin >> t;
+    int n;
+    cin >> n;
 
-    while(t--)
+    vector <int> v(n);
+    int sum = 0;
+
+    for(int i = 0; i < n; i++)
     {
-        int n;
-        cin >> n;
-
-        vector <int> v(n);
-
-        taking_input(v, n);
-
-        vector <int> prefix_sum(n);
-        //sort_asc(v);
-
-        prefix_sum[0] = v[0];
-
-        for(int i = 1; i < n; i++)
-        {
-            prefix_sum[i] = prefix_sum[i - 1] + v[i];
-        }
-
-        for(auto it : prefix_sum)
-        {
-            cout << it << " ";
-        }
-
-        cout << endl;
+        cin >> v[i];
+        sum += v[i];
     }
+
+    if(sum % 2 != 0)
+    {
+        cout << 0 << endl;
+        return 0;
+    }
+
+    int target = sum / 2;
+    int prefix_sum = 0;
+    int count = 0;
+
+    for(int i = 0; i < n - 1; i++)
+    {
+        prefix_sum += v[i];
+
+        if(prefix_sum == target)
+        {
+            count++;
+        }
+    }
+
+    cout << count << endl;
 
     return 0;
 }
