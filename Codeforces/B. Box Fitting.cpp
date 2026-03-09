@@ -69,7 +69,6 @@ signed main()
     return 0;
 }
 
-*/
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -111,6 +110,63 @@ int main()
                     left--;
                 }
             }
+
+            height++;
+        }
+
+        cout << height << "\n";
+    }
+}
+*/
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+#define int long long
+
+signed main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int t;
+    cin >> t;
+
+    while(t--)
+    {
+        int n, W;
+        cin >> n >> W;
+
+        vector<int> cnt(21, 0);
+
+        for(int i = 0; i < n; i++)
+        {
+            int x;
+            cin >> x;
+
+            int p = __lg(x);
+            cnt[p]++;
+        }
+
+        int height = 0;
+
+        while(true)
+        {
+            int space = W;
+            bool placed = false;
+
+            for(int i = 20; i >= 0; i--)
+            {
+                while(cnt[i] > 0 && (1LL << i) <= space)
+                {
+                    space -= (1LL << i);
+                    cnt[i]--;
+                    placed = true;
+                }
+            }
+
+            if(!placed) break;
 
             height++;
         }

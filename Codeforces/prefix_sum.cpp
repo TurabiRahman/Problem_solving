@@ -32,7 +32,7 @@ signed main()
         taking_input(v, n);
 
         vector <int> prefix_sum(n);
-        //sort_asc(v);
+        sort_asc(v);
 
         prefix_sum[0] = v[0];
 
