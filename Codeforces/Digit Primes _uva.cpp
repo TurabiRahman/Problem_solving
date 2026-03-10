@@ -19,16 +19,16 @@ int sumOfDigits(int n)
     return (n % 10) + sumOfDigits(n / 10);
 }
 
-vector <int> sieve(int n)
+vector<bool> sieve(int n)
 {
-    vector <bool> v(n, true);
+    vector<bool> v(n + 1, true);
 
     v[0] = false;
     v[1] = false;
 
     for(int i = 2; i * i <= n; i++)
     {
-        if(v[i] == true)
+        if(v[i])
         {
             for(int j = i * i; j <= n; j += i)
             {
@@ -37,54 +37,42 @@ vector <int> sieve(int n)
         }
     }
 
-    vector <int> res;
+    return v;
+}
 
-    for(int i = 2; i <= n; i++)
+signed main()
+{
+    int limit = 1000000;
+
+    vector<bool> prime = sieve(limit);
+
+    vector<int> prefix(limit + 1, 0);
+
+    for(int i = 1; i <= limit; i++)
     {
-        if(v[i] == true)
+        prefix[i] = prefix[i-1];
+
+        if(prime[i])
         {
-            res.push_back(i);
-        }
-    }
+            int x = sumOfDigits(i);
 
-    vector <int> final;
-
-    for(int i = 5; i <= n; i++)
-    {
-        int x;
-        x = sumOfDigits(res[i]);
-
-        for(int j = 0; j <= res[i]; j++)
-        {
-            if(x == res[j])
+            if(prime[x])
             {
-                final.push_back(res[i]);
+                prefix[i]++;
             }
         }
     }
 
-    return final;
-}
-
-
-signed main()
-{
     int t;
     cin >> t;
 
-    vector <int> v = sieve(1000000);
-
     while(t--)
     {
-        int s, e;
-        cin >> s >> e;
+        int l,r;
+        cin >> l >> r;
 
-        int count = 0;
-
-        for(int i = 0; i < )
+        cout << prefix[r] - prefix[l-1] << endl;
     }
 
     return 0;
 }
-
-
