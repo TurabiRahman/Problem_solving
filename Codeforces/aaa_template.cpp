@@ -19,6 +19,8 @@ inline int countDigit(int n)
 }
 signed main()
 {
+    fast;
+
     int t;
     cin >> t;
 
