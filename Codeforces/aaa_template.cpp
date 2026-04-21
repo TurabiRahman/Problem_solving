@@ -3,7 +3,7 @@
 using namespace std;
 
 #define int long long
-#define taking_input(v, n) for(int i = 0; i < (n); i++) cin >> (v)[i]
+//#define taking_input(v, n) for(int i = 0; i < (n); i++) cin >> (v)[i]
 #define output(a) cout << (a) << endl;
 #define sort_dec(v) sort((v).begin(), (v).end(), greater<int>())
 #define sort_asc(v) sort((v).begin(), (v).end())
