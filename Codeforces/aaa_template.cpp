@@ -9,6 +9,8 @@ using namespace std;
 #define reverse_lr(v, l, r) reverse((v).begin() + (l), (v).begin() + (r) + 1)
 #define fast ios::sync_with_stdio(false); cin.tie(NULL)
 
+
+
 inline int countDigit(int n)
 {
     if (n / 10 == 0) return 1;
