@@ -10,7 +10,6 @@ using namespace std;
 #define fast ios::sync_with_stdio(false); cin.tie(NULL)
 
 
-
 inline int countDigit(int n)
 {
     if (n / 10 == 0) return 1;
