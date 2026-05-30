@@ -1,2 +1,4 @@
 *.o
 *.exe
+config.bat
+node_modules
